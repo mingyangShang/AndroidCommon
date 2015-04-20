@@ -7,9 +7,12 @@ import android.app.Application;
 
 public class SmyApplication extends Application {
 
+	private static SmyApplication singleton;
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		singleton = this;
 		init();
 	}
 
@@ -21,6 +24,10 @@ public class SmyApplication extends Application {
 	private void initUIL() {
 		ImageLoaderConfiguration configuration = ImageLoaderConfiguration.createDefault(this);
 		ImageLoader.getInstance().init(configuration);
+	}
+	
+	public static Application getSingleton(){
+		return singleton;
 	}
 
 }
