@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 public abstract class BaseActivity extends Activity {
 
@@ -21,6 +22,7 @@ public abstract class BaseActivity extends Activity {
 	}
 	protected void onCreate(Bundle savedInstanceState,View view){
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(view);
 		init();
 	}
@@ -43,8 +45,8 @@ public abstract class BaseActivity extends Activity {
 		super.onDestroy();
 	}
 	
-	protected abstract void initData(); //初始化数据
-	protected abstract void initView(); //初始化视图
+	protected abstract void initData(); //鍒濆鍖栨暟鎹�
+	protected abstract void initView(); //鍒濆鍖栬鍥�
 	protected void init() {
 		initData();
 		initView();
